@@ -168,3 +168,27 @@ public Page<CarDTO> getFilteredCars(CarPage carPage, CarSearchCriteria carSearch
 }
 ```
 
+Output with http://localhost:8080/cars?modelName=S500
+```json
+"content": [
+        {
+            "model": {
+                "name": "S500",
+                "make": {
+                    "name": "Mercedes"
+                }
+            },
+            "color": "green"
+        },
+        {
+            "model": {
+                "name": "S500",
+                "make": {
+                    "name": "Mercedes"
+                }
+            },
+            "color": "green"
+        }
+    ],
+```
+
