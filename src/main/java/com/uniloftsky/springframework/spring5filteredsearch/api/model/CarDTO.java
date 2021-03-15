@@ -1,10 +1,13 @@
 package com.uniloftsky.springframework.spring5filteredsearch.api.model;
 
-import com.uniloftsky.springframework.spring5filteredsearch.model.Model;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class CarDTO {
 
-    private Model model;
+    private ModelDTO model;
     private String color;
 
 }

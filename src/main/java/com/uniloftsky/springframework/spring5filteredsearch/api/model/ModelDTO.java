@@ -1,10 +1,13 @@
 package com.uniloftsky.springframework.spring5filteredsearch.api.model;
 
-import com.uniloftsky.springframework.spring5filteredsearch.model.Make;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class ModelDTO {
 
-    private Make make;
     private String name;
+    private MakeDTO make;
 
 }
