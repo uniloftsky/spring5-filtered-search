@@ -1,6 +1,5 @@
 package com.uniloftsky.springframework.spring5filteredsearch.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +18,6 @@ public class Car extends BaseEntity {
         this.color = color;
     }
 
-    @JsonIgnore
     @ManyToOne
     private Model model;
 

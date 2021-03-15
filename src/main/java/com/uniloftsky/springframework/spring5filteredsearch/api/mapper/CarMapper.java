@@ -9,6 +9,8 @@ import org.mapstruct.factory.Mappers;
 public interface CarMapper {
 
     CarMapper INSTANCE = Mappers.getMapper(CarMapper.class);
+
+    //method converting DB Entity to DTO. Implementation creates at compile time.
     CarDTO carToCarDTO(Car car);
 
 }

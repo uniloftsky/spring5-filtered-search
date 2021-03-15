@@ -26,7 +26,7 @@ public class CarCriteriaRepository {
     }
 
     public Page<Car> findAllWithFilters(CarPage carPage,
-                                           CarSearchCriteria carSearchCriteria) {
+                                        CarSearchCriteria carSearchCriteria) {
         CriteriaQuery<Car> criteriaQuery = criteriaBuilder.createQuery(Car.class);
         Root<Car> carRoot = criteriaQuery.from(Car.class);
         Predicate predicate = getPredicate(carSearchCriteria, carRoot);
@@ -47,19 +47,19 @@ public class CarCriteriaRepository {
     private Predicate getPredicate(CarSearchCriteria carSearchCriteria,
                                    Root<Car> carRoot) {
         List<Predicate> predicates = new ArrayList<>();
-        if(Objects.nonNull(carSearchCriteria.getModelName())){
+        if (Objects.nonNull(carSearchCriteria.getModelName())) {
             predicates.add(
                     criteriaBuilder.like(carRoot.get("model").get("name"),
                             "%" + carSearchCriteria.getModelName() + "%")
             );
         }
-        if(Objects.nonNull(carSearchCriteria.getMakeName())){
+        if (Objects.nonNull(carSearchCriteria.getMakeName())) {
             predicates.add(
-                    criteriaBuilder.like(carRoot.get("model").get("make").get("name"),
+                    criteriaBuilder.like(carRoot.get("model").get("make").get("name"), //if need to use bean with references to other beans. Property like a string
                             "%" + carSearchCriteria.getMakeName() + "%")
             );
         }
-        if(Objects.nonNull(carSearchCriteria.getColor())){
+        if (Objects.nonNull(carSearchCriteria.getColor())) {
             predicates.add(
                     criteriaBuilder.like(carRoot.get("color"),
                             "%" + carSearchCriteria.getColor() + "%")

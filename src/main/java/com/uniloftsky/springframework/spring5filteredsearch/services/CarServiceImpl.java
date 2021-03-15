@@ -26,7 +26,9 @@ public class CarServiceImpl implements CarService {
     @Override
     public Page<CarDTO> getFilteredCars(CarPage carPage, CarSearchCriteria carSearchCriteria) {
         List<CarDTO> carDTOList = new ArrayList<>();
-        carCriteriaRepository.findAllWithFilters(carPage, carSearchCriteria).forEach(car -> carDTOList.add(carMapper.carToCarDTO(car)));
+        //getting cars from carCriteriaRepository and converting them to DTO, returning list with DTOs. Then controller uses this method
+        carCriteriaRepository.findAllWithFilters(carPage, carSearchCriteria)
+                .forEach(car -> carDTOList.add(carMapper.carToCarDTO(car)));
         return new PageImpl<>(carDTOList);
     }
 }
